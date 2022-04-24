@@ -10,6 +10,6 @@ public class HomeController {
     @RequestMapping("/")
     @ResponseBody
     public String home() {
-        return "hello Marek, udało się!";
+        return "Welcome in diver application";
     }
 }

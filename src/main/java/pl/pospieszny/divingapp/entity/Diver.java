@@ -10,7 +10,7 @@ public class Diver {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @NotBlank
     private String name;
@@ -22,7 +22,7 @@ public class Diver {
 
     public Diver() {}
 
-    public Diver(long id, String name, String surname, String email) {
+    public Diver(Long id, String name, String surname, String email) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -33,7 +33,7 @@ public class Diver {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
