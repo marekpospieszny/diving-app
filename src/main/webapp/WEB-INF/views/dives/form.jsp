@@ -4,12 +4,12 @@
 <div class="mb-3">
     <div class="mb-3">
         <label class="form-label">Diver:</label>
-        <form:select path="diver" items="${divers}" itemValue="id" itemLabel="surname"/>
+        <form:select path="diver" items="${divers}" itemValue="id" itemLabel="fullName"/>
         <form:errors path="diver"/>
     </div>
     <div class="mb-3">
         <label class="col-form-label">Partner:</label>
-        <form:select path="partner" items="${divers}" itemValue="id" itemLabel="surname"/>
+        <form:select path="partner" items="${divers}" itemValue="id" itemLabel="fullName"/>
         <form:errors path="partner"/>
     </div>
 <%--    <div class="mb-3">--%>

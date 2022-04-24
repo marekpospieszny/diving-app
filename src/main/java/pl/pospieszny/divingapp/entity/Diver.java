@@ -29,7 +29,7 @@ public class Diver {
         this.email = email;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
@@ -59,6 +59,10 @@ public class Diver {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getFullName() {
+        return String.join(" ",this.name, this.surname);
     }
 
 }
