@@ -10,6 +10,7 @@
 
 <a href="/admin/divers/list" class="btn btn-secondary">Divers</a>
 <a href="/admin/locations/list" class="btn btn-secondary">Locations</a>
+<a href="/admin/dives/list" class="btn btn-secondary">Dives</a>
 
 </body>
 </html>

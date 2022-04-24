@@ -34,6 +34,9 @@
     </c:forEach>
     </tbody>
 </table>
+
+<a href="<c:url value="/"/>" class="btn btn-secondary">Return to control panel</a>
+
 </body>
 </html>
 
