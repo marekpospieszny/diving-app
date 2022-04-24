@@ -17,6 +17,7 @@ public class Diver {
     @NotBlank
     private String surname;
     @Email
+    @NotBlank
     private String email;
 
     public Diver() {}
