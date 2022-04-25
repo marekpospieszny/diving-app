@@ -20,13 +20,17 @@ public class Diver {
     @NotBlank
     private String email;
 
+    @NotBlank
+    private String password;
+
     public Diver() {}
 
-    public Diver(Long id, String name, String surname, String email) {
+    public Diver(Long id, String name, String surname, String email, String password) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.email = email;
+        this.password = password;
     }
 
     public Long getId() {
@@ -65,4 +69,11 @@ public class Diver {
         return String.join(" ",this.name, this.surname);
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }
