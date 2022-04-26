@@ -17,6 +17,6 @@ public interface DiverService {
 
     void update(Diver diver);
 
-
+    Diver getByEmail(String email);
 
 }

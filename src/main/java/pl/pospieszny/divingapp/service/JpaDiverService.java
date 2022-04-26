@@ -42,4 +42,11 @@ public class JpaDiverService implements DiverService{
     public void update(Diver diver) {
         diverRepository.save(diver);
     }
+
+    @Override
+    public Diver getByEmail(String email) {
+        return diverRepository.findDiverByEmail(email);
+    }
+
+
 }
