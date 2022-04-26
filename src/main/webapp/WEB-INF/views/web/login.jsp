@@ -17,9 +17,10 @@
         </div>
 
         <!-- Login Form -->
-        <form>
-            <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
-            <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
+        <form action="${pageContext.request.contextPath}/login" method="post">
+            <h1 class="text-color-darker">Login page</h1>
+            <input type="text" id="email" class="fadeIn second" name="email" placeholder="email">
+            <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
             <input type="submit" class="fadeIn fourth" value="Log In">
         </form>
 
