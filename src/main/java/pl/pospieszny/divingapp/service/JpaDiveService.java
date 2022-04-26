@@ -42,4 +42,9 @@ public class JpaDiveService implements DiveService{
     public void update(Dive dive) {
         diveRepository.save(dive);
     }
+
+    @Override
+    public List<Dive> getByDiverId(Long id) {
+        return diveRepository.findAllDivesByDiverId(id);
+    }
 }

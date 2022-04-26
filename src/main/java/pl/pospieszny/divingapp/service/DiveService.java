@@ -16,4 +16,6 @@ public interface DiveService{
     void delete(Long id);
 
     void update(Dive dive);
+
+    List<Dive> getByDiverId(Long id);
 }
