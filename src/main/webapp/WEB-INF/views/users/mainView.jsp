@@ -11,7 +11,7 @@
 <h4>User ${diver.name} logged in.</h4>
 
 <a href="/app/details/${diver.id}" class="btn btn-success">User details</a>
-<a href="/app/edit/${diver.id}" class="btn btn-warning">Change password</a>
+<a href="/app/changePassword/${diver.id}" class="btn btn-warning">Change password</a>
 <a href="/app/divelist/${diver.id}" class="btn btn-warning">Show dive list</a>
 <a href="/app/locations" class="btn btn-warning">Show list of diving destinations</a>
 
