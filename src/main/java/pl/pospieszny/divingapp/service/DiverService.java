@@ -19,4 +19,6 @@ public interface DiverService {
 
     Diver getByEmail(String email);
 
+    List<Diver> getAllDiversExcludingIndicatedId(Long id);
+
 }

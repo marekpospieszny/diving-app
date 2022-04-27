@@ -48,5 +48,10 @@ public class JpaDiverService implements DiverService{
         return diverRepository.findDiverByEmail(email);
     }
 
+    @Override
+    public List<Diver> getAllDiversExcludingIndicatedId(Long id) {
+        return diverRepository.findDiversByIdIsNot(id);
+    }
+
 
 }
