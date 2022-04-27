@@ -11,22 +11,17 @@
     <div id="formContent">
         <!-- Tabs Titles -->
 
-        <!-- Icon -->
-        <div class="fadeIn first">
-            <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
-        </div>
-
         <!-- Login Form -->
         <form action="${pageContext.request.contextPath}/login" method="post">
             <h1 class="text-color-darker">Login page</h1>
             <input type="text" id="email" class="fadeIn second" name="email" placeholder="email">
             <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
-            <input type="submit" class="fadeIn fourth" value="Log In">
+            <input type="submit" class="btn btn-primary" value="Log In">
         </form>
 
         <!-- Remind Passowrd -->
         <div id="formFooter">
-            <a class="underlineHover" href="#">Forgot Password?</a>
+            <a class="btn btn-secondary" href="#">Forgot Password?</a>
         </div>
 
     </div>
