@@ -27,6 +27,11 @@ public class HomeController {
         return "web/home";
     }
 
+    @RequestMapping("/test")
+    public String test() {
+        return "web/test";
+    }
+
     @GetMapping("/admin")
     public String adminPanel() {
         return "web/admin";

@@ -46,7 +46,7 @@ public class UserViewController {
     }
 
     @GetMapping("/changePassword/{id}")
-    public String editForm(@PathVariable Long id, Model model) {
+    public String changePassword(@PathVariable Long id, Model model) {
         model.addAttribute("diver",diverService.get(id).get());
         return "users/changePassword";
     }
@@ -91,7 +91,7 @@ public class UserViewController {
             return "users/addForm";
         }
         diveService.add(dive);
-        return "redirect:/app/";
+        return "redirect:/app/divelist/" + id;
     }
 
     @GetMapping("/locations/details/{id}")
@@ -100,5 +100,40 @@ public class UserViewController {
         return "users/locationDetails";
     }
 
-    
+    // Pracuje nad tym (oraz calosciowo w divelist przycisk details, edit, delete-jest gotowy)
+//    Poprawic redirect w add, details, edit oraz delete, poniewaz przekazany diverID przekazuje tylko pierwszego divera
+    @GetMapping("/dive/details/{id}")
+    public String getDiveDetails(@PathVariable Long id, Model model) {
+        model.addAttribute("dive",diveService.get(id).get());
+        return "users/diveDetails";
+    }
+
+    @GetMapping("/dive/delete/{id}")
+    public String deleteDive(@PathVariable Long id) {
+        Long diverID = diveService.get(id).get().getDiver().getId();
+        diveService.delete(id);
+        return "redirect:/app/divelist/" + diverID;
+    }
+
+    @GetMapping("/dive/edit/{id}")
+    public String diveEditForm(@PathVariable Long id, Model model) {
+        Long diverID = diveService.get(id).get().getDiver().getId();
+        model.addAttribute("divers",diverService.getAllDiversExcludingIndicatedId(diverID));
+        model.addAttribute("locations",locationService.getAllLocations());
+        model.addAttribute("diver",diveService.get(id).get().getDiver());
+        model.addAttribute("dive",diveService.get(id));
+        return "users/editForm";
+    }
+
+    @PostMapping("/dive/update/{id}")
+    public String diveUpdate(@Valid Dive dive, BindingResult result, Model model, @PathVariable Long id) {
+        if(result.hasErrors()) {
+            model.addAttribute("divers",diverService.getAllDiversExcludingIndicatedId(id));
+            model.addAttribute("locations",locationService.getAllLocations());
+            model.addAttribute("diver",diverService.get(id).get());
+            return "users/editForm";
+        }
+        diveService.update(dive);
+        return "redirect:/app/divelist/" + id;
+    }
 }
