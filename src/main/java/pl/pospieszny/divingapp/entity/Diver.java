@@ -22,17 +22,18 @@ public class Diver {
 
     @NotBlank
     private String password;
-    
+
     private boolean admin;
 
     public Diver() {}
 
-    public Diver(Long id, String name, String surname, String email, String password) {
+    public Diver(Long id, String name, String surname, String email, String password, boolean admin) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.email = email;
         this.password = password;
+        this.admin = admin;
     }
 
     public Long getId() {

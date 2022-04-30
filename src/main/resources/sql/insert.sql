@@ -1,7 +1,8 @@
-INSERT INTO `divers` (`id`,`email`,`name`,`surname`,`password`) VALUES
-    (1,'marek.pospieszny@gmail.com','Marek','Pospieszny','test'),
-    (2,'jan.nowak@wp.pl','Jan','Nowak','test'),
-    (3,'anna.kowalska@wp.pl','Anna','Kowalska','test');
+INSERT INTO `divers` (`id`,`email`,`name`,`surname`,`password`,`admin`) VALUES
+    (1,'marek.pospieszny@gmail.com','Marek','Pospieszny','test',false),
+    (2,'jan.nowak@wp.pl','Jan','Nowak','test',false),
+    (3,'anna.kowalska@wp.pl','Anna','Kowalska','test',false),
+    (4,'admin@admin.pl','Admin','Admin','admin',true);
 
 INSERT INTO `locations` (`id`, `area`, `country`, `max_depth`, `name`, `rating`) VALUES
     (1,'Jaworzno','Poland',19,'Koparki',8),
