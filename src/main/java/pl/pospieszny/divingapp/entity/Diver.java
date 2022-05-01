@@ -23,6 +23,7 @@ public class Diver {
     @NotBlank
     private String password;
 
+    @NotBlank
     private boolean admin;
 
     public Diver() {}
