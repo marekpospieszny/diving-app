@@ -49,7 +49,7 @@
     <input type="submit" class="btn btn-primary" value="Edit">
 </form:form>
 
-<a href="/app/divelist/${diver.id}" class="btn btn-secondary">Return</a>
+<a href="/app/divelist/${user.id}" class="btn btn-secondary">Return</a>
 
 </body>
 </html>

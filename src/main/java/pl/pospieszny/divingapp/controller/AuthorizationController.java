@@ -31,7 +31,7 @@ public class AuthorizationController {
         Diver diver = diverService.getByEmail(email);
         HttpSession session = request.getSession();
         if(diver != null && diver.getEmail().equals(email) && PasswordUtil.checkPassword(password, diver.getPassword())) {
-            session.setAttribute("diver",diver);
+            session.setAttribute("user",diver);
             if(diver.isAdmin()) {
                 return "redirect:/admin";
             } else {

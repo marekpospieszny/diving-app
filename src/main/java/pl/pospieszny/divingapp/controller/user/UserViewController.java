@@ -34,7 +34,7 @@ public class UserViewController {
     @GetMapping("")
     public String userHomepage(HttpServletRequest request, Model model) {
         HttpSession session = request.getSession();
-        Diver diver = (Diver) session.getAttribute("diver");
+        Diver diver = (Diver) session.getAttribute("user");
         model.addAttribute("diver",diver);
         return "usersView/mainView";
     }
