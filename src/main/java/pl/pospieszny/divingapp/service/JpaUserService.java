@@ -1,10 +1,14 @@
 package pl.pospieszny.divingapp.service;
 
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Service;
 import pl.pospieszny.divingapp.entity.User;
 import pl.pospieszny.divingapp.repository.UserRepository;
 
 import java.util.List;
 
+@Service
+@Primary
 public class JpaUserService implements UserService {
 
     private final UserRepository userRepository;

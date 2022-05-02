@@ -9,47 +9,12 @@
 </head>
 <body>
 
-<form:form modelAttribute="dive" method="post" action="/app/add/dive/${diver.id}">
-    <form:hidden path="id"/>
-    <form:hidden path="date"/>
-    <input type="hidden" id="diver" name="diver" value="${diver.id}"/>
-    <div class="mb-3">
-        <div class="mb-3">
-            <label class="col-form-label">Partner:</label>
-            <form:select path="partner" items="${divers}" itemValue="id" itemLabel="fullName"/>
-            <form:errors path="partner"/>
-        </div>
-        <div class="mb-3">
-            <label class="col-form-label">Underwater time:</label>
-            <form:input path="underwaterTimeInMinutes"/>
-            <form:errors path="underwaterTimeInMinutes"/>
-        </div>
-        <div class="mb-3">
-            <label class="col-form-label">Max depth:</label>
-            <form:input path="maxDepth"/>
-            <form:errors path="maxDepth"/>
-        </div>
-        <div class="mb-3">
-            <label class="col-form-label">Location:</label>
-            <form:select path="location" items="${locations}" itemValue="id" itemLabel="name"/>
-            <form:errors path="location"/>
-        </div>
-        <div class="mb-3">
-            <label class="col-form-label">Rating:</label>
-            <form:input path="rating"/>
-            <form:errors path="rating"/>
-        </div>
-        <div class="mb-3">
-            <label class="col-form-label">Comment:</label>
-            <form:input path="comment"/>
-            <form:errors path="comment"/>
-        </div>
-    </div>
-    <br/>
+<form:form modelAttribute="user" method="post" action="/app/users/add">
+    <jsp:include page="form.jsp"/>
     <input type="submit" name="Add" class="btn btn-primary">
 </form:form>
 
-<a href="/app/divelist/${diver.id}" class="btn btn-secondary">Return</a>
+<a href="/app/users/list" class="btn btn-secondary">Return</a>
 
 </body>
 </html>

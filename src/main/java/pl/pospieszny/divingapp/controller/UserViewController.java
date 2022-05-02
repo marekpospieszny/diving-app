@@ -36,19 +36,19 @@ public class UserViewController {
         HttpSession session = request.getSession();
         Diver diver = (Diver) session.getAttribute("diver");
         model.addAttribute("diver",diver);
-        return "users/mainView";
+        return "usersView/mainView";
     }
 
     @GetMapping("/details/{id}")
     public String details(@PathVariable Long id, Model model) {
         model.addAttribute("diver",diverService.get(id).get());
-        return "users/details";
+        return "usersView/details";
     }
 
     @GetMapping("/changePassword/{id}")
     public String changePassword(@PathVariable Long id, Model model) {
         model.addAttribute("diver",diverService.get(id).get());
-        return "users/changePassword";
+        return "usersView/changePassword";
     }
 
     @PostMapping("/update")
@@ -64,13 +64,13 @@ public class UserViewController {
     public String diveList(@PathVariable Long id, Model model) {
         model.addAttribute("dives",diveService.getByDiverId(id));
         model.addAttribute("diver",diverService.get(id).get());
-        return "users/diveList";
+        return "usersView/diveList";
     }
 
     @GetMapping("/locations")
     public String locations(Model model) {
         model.addAttribute("locations",locationService.getAllLocations());
-        return "users/locationsList";
+        return "usersView/locationsList";
     }
 
     @GetMapping("/add/dive/{id}")
@@ -79,7 +79,7 @@ public class UserViewController {
         model.addAttribute("locations",locationService.getAllLocations());
         model.addAttribute("diver",diverService.get(id).get());
         model.addAttribute("dive",new Dive());
-        return "users/addForm";
+        return "usersView/addForm";
     }
 
     @PostMapping("/add/dive/{id}")
@@ -88,7 +88,7 @@ public class UserViewController {
             model.addAttribute("divers",diverService.getAllDivers());
             model.addAttribute("locations",locationService.getAllLocations());
             model.addAttribute("diver",diverService.get(id).get());
-            return "users/addForm";
+            return "usersView/addForm";
         }
         diveService.add(dive);
         return "redirect:/app/divelist/" + id;
@@ -97,7 +97,7 @@ public class UserViewController {
     @GetMapping("/locations/details/{id}")
     public String locationDetails(@PathVariable Long id, Model model) {
         model.addAttribute("location",locationService.get(id).get());
-        return "users/locationDetails";
+        return "usersView/locationDetails";
     }
 
     // Pracuje nad tym (oraz calosciowo w divelist przycisk details, edit, delete-jest gotowy)
@@ -105,7 +105,7 @@ public class UserViewController {
     @GetMapping("/dive/details/{id}")
     public String getDiveDetails(@PathVariable Long id, Model model) {
         model.addAttribute("dive",diveService.get(id).get());
-        return "users/diveDetails";
+        return "usersView/diveDetails";
     }
 
     @GetMapping("/dive/delete/{id}")
@@ -122,7 +122,7 @@ public class UserViewController {
         model.addAttribute("locations",locationService.getAllLocations());
         model.addAttribute("diver",diveService.get(id).get().getDiver());
         model.addAttribute("dive",diveService.get(id));
-        return "users/editForm";
+        return "usersView/editForm";
     }
 
     @PostMapping("/dive/update/{id}")
@@ -131,7 +131,7 @@ public class UserViewController {
             model.addAttribute("divers",diverService.getAllDiversExcludingIndicatedId(id));
             model.addAttribute("locations",locationService.getAllLocations());
             model.addAttribute("diver",diverService.get(id).get());
-            return "users/editForm";
+            return "usersView/editForm";
         }
         diveService.update(dive);
         return "redirect:/app/divelist/" + id;

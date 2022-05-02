@@ -2,13 +2,11 @@ package pl.pospieszny.divingapp.entity;
 
 import pl.pospieszny.divingapp.utils.PasswordUtil;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
 @Entity
+@Table(name = "users")
 public class User {
 
     @Id
@@ -21,7 +19,6 @@ public class User {
     @NotBlank
     private String password;
 
-    @NotBlank
     private boolean isAdmin;
 
     public User() {
