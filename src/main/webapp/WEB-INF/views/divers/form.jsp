@@ -18,7 +18,7 @@
     </div>
     <div class="mb-3">
         <label class="col-form-label">Password:</label>
-        <form:input path="password"/>
+        <form:password path="password"/>
         <form:errors path="password"/>
     </div>
 </div>

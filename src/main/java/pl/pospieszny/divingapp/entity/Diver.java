@@ -1,5 +1,7 @@
 package pl.pospieszny.divingapp.entity;
 
+import pl.pospieszny.divingapp.utils.PasswordUtil;
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -23,7 +25,6 @@ public class Diver {
     @NotBlank
     private String password;
 
-    @NotBlank
     private boolean admin;
 
     public Diver() {}
@@ -33,7 +34,7 @@ public class Diver {
         this.name = name;
         this.surname = surname;
         this.email = email;
-        this.password = password;
+        this.password = PasswordUtil.createHash(password);
         this.admin = admin;
     }
 
@@ -78,7 +79,7 @@ public class Diver {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password = PasswordUtil.createHash(password);
     }
 
     public boolean isAdmin() {

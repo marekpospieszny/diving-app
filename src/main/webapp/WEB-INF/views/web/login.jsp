@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -9,17 +10,19 @@
 <body>
 <div class="wrapper fadeInDown">
     <div id="formContent">
-        <!-- Tabs Titles -->
 
-        <!-- Login Form -->
         <form action="${pageContext.request.contextPath}/login" method="post">
             <h1 class="text-color-darker">Login page</h1>
             <input type="text" id="email" class="fadeIn second" name="email" placeholder="email">
             <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
             <input type="submit" class="btn btn-primary" value="Log In">
+            <c:if test="${wrong}">
+                <div class="alert">
+                    <p>Incorrect login or password.</p>
+                </div>
+            </c:if>
         </form>
 
-        <!-- Remind Passowrd -->
         <div id="formFooter">
             <a class="btn btn-secondary" href="#">Forgot Password?</a>
         </div>

@@ -1,4 +1,4 @@
-package pl.pospieszny.divingapp.controller;
+package pl.pospieszny.divingapp.controller.user;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

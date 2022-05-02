@@ -37,27 +37,27 @@ public class HomeController {
         return "web/admin";
     }
 
-    @GetMapping("/login")
-    public String loginPage() {
-        return "web/login";
-    }
+//    @GetMapping("/login")
+//    public String loginPage() {
+//        return "web/login";
+//    }
 
-    @PostMapping("/login")
-    public String login(HttpServletRequest request) {
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
-        Diver diver = diverService.getByEmail(email);
-        HttpSession session = request.getSession();
-        if(diver != null) {
-            if (diver.getEmail().equals(email) && diver.getPassword().equals(password)) {
-                session.setAttribute("diver",diver);
-                return "redirect:/app";
-            } else {
-                return "redirect:/login";
-            }
-        }
-        return "redirect:/login";
-    }
+//    @PostMapping("/login")
+//    public String login(HttpServletRequest request) {
+//        String email = request.getParameter("email");
+//        String password = request.getParameter("password");
+//        Diver diver = diverService.getByEmail(email);
+//        HttpSession session = request.getSession();
+//        if(diver != null) {
+//            if (diver.getEmail().equals(email) && diver.getPassword().equals(password)) {
+//                session.setAttribute("diver",diver);
+//                return "redirect:/app";
+//            } else {
+//                return "redirect:/login";
+//            }
+//        }
+//        return "redirect:/login";
+//    }
 
     @GetMapping("/register")
     public String register() {
