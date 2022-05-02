@@ -42,4 +42,9 @@ public class AuthorizationController {
             return "web/login";
         }
     }
+
+    @GetMapping("/register")
+    public String register() {
+        return "web/register";
+    }
 }
