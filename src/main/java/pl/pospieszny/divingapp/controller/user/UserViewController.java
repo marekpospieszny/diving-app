@@ -1,5 +1,6 @@
 package pl.pospieszny.divingapp.controller.user;
 
+import org.apache.coyote.http11.HttpOutputBuffer;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -52,9 +53,9 @@ public class UserViewController {
     }
 
     @PostMapping("/update")
-    public String edit(@Valid Diver diver, BindingResult result, Model model) {
+    public String edit(@Valid Diver diver, BindingResult result) {
         if(result.hasErrors()) {
-            return "changePassword";
+            return "usersView/changePassword";
         }
         diverService.update(diver);
         return "redirect:/app";
@@ -109,10 +110,10 @@ public class UserViewController {
     }
 
     @GetMapping("/dive/delete/{id}")
-    public String deleteDive(@PathVariable Long id) {
-        Long diverID = diveService.get(id).get().getDiver().getId();
+    public String deleteDive(@PathVariable Long id, HttpServletRequest request) {
+        Diver currentUser = (Diver) request.getSession().getAttribute("user");
         diveService.delete(id);
-        return "redirect:/app/divelist/" + diverID;
+        return "redirect:/app/divelist/" + currentUser.getId();
     }
 
     @GetMapping("/dive/edit/{id}")
@@ -126,14 +127,15 @@ public class UserViewController {
     }
 
     @PostMapping("/dive/update/{id}")
-    public String diveUpdate(@Valid Dive dive, BindingResult result, Model model, @PathVariable Long id) {
+    public String diveUpdate(@Valid Dive dive, BindingResult result, Model model, @PathVariable Long id, HttpServletRequest request) {
         if(result.hasErrors()) {
             model.addAttribute("divers",diverService.getAllDiversExcludingIndicatedId(id));
             model.addAttribute("locations",locationService.getAllLocations());
             model.addAttribute("diver",diverService.get(id).get());
             return "usersView/editForm";
         }
+        Diver currentUser = (Diver) request.getSession().getAttribute("user");
         diveService.update(dive);
-        return "redirect:/app/divelist/" + id;
+        return "redirect:/app/divelist/" + currentUser.getId();
     }
 }

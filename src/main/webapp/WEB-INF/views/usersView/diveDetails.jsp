@@ -30,7 +30,7 @@
     <li class="list-group-item">${dive.comment}</li>
 </ul>
 
-<a href="/app/divelist/${dive.diver.id}" class="btn btn-secondary">Return</a>
+<a href="/app/divelist/${user.id}" class="btn btn-secondary">Return</a>
 
 </body>
 </html>
