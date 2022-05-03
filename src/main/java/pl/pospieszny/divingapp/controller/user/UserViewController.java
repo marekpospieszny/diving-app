@@ -1,6 +1,5 @@
 package pl.pospieszny.divingapp.controller.user;
 
-import org.apache.coyote.http11.HttpOutputBuffer;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -101,8 +100,6 @@ public class UserViewController {
         return "usersView/locationDetails";
     }
 
-    // Pracuje nad tym (oraz calosciowo w divelist przycisk details, edit, delete-jest gotowy)
-//    Poprawic redirect w add, details, edit oraz delete, poniewaz przekazany diverID przekazuje tylko pierwszego divera
     @GetMapping("/dive/details/{id}")
     public String getDiveDetails(@PathVariable Long id, Model model) {
         model.addAttribute("dive",diveService.get(id).get());
@@ -117,9 +114,9 @@ public class UserViewController {
     }
 
     @GetMapping("/dive/edit/{id}")
-    public String diveEditForm(@PathVariable Long id, Model model) {
-        Long diverID = diveService.get(id).get().getDiver().getId();
-        model.addAttribute("divers",diverService.getAllDiversExcludingIndicatedId(diverID));
+    public String diveEditForm(@PathVariable Long id, Model model, HttpServletRequest request) {
+        Diver currentUser = (Diver) request.getSession().getAttribute("user");
+        model.addAttribute("divers",diverService.getAllDiversExcludingIndicatedId(currentUser.getId()));
         model.addAttribute("locations",locationService.getAllLocations());
         model.addAttribute("diver",diveService.get(id).get().getDiver());
         model.addAttribute("dive",diveService.get(id));
