@@ -12,13 +12,25 @@
 <form:form modelAttribute="dive" method="post" action="/app/dive/update/${diver.id}">
     <form:hidden path="id"/>
     <form:hidden path="date"/>
-    <input type="hidden" id="diver" name="diver" value="${diver.id}"/>
     <div class="mb-3">
-        <div class="mb-3">
-            <label class="col-form-label">Partner:</label>
-            <form:select path="partner" items="${divers}" itemValue="id" itemLabel="fullName"/>
-            <form:errors path="partner"/>
-        </div>
+    <c:choose>
+        <c:when test="${user.id == diver.id}">
+            <input type="hidden" id="diver" name="diver" value="${diver.id}"/>
+            <div class="mb-3">
+                <label class="col-form-label">Partner:</label>
+                <form:select path="partner" items="${divers}" itemValue="id" itemLabel="fullName"/>
+                <form:errors path="partner"/>
+            </div>
+        </c:when>
+        <c:otherwise>
+            <input type="hidden" id="partner" name="partner" value="${user.id}"/>
+            <div class="mb-3">
+                <label class="col-form-label">Diver:</label>
+                <form:select path="diver" items="${divers}" itemValue="id" itemLabel="fullName"/>
+                <form:errors path="diver"/>
+            </div>
+        </c:otherwise>
+    </c:choose>
         <div class="mb-3">
             <label class="col-form-label">Underwater time:</label>
             <form:input path="underwaterTimeInMinutes"/>
