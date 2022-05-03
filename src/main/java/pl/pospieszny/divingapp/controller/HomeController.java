@@ -1,4 +1,4 @@
-package pl.pospieszny.divingapp;
+package pl.pospieszny.divingapp.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,11 +19,6 @@ public class HomeController {
     @RequestMapping("/")
     public String home() {
         return "web/home";
-    }
-
-    @RequestMapping("/test")
-    public String test() {
-        return "web/test";
     }
 
 }
