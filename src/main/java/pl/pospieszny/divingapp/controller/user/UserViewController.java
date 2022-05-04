@@ -36,7 +36,7 @@ public class UserViewController {
         HttpSession session = request.getSession();
         Diver diver = (Diver) session.getAttribute("user");
         model.addAttribute("diver",diver);
-        return "usersView/mainView";
+        return "web/user";
     }
 
     @GetMapping("/details/{id}")
