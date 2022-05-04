@@ -8,15 +8,15 @@
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     Dashboard
                 </a>
-                <a class="nav-link" href="/app/details/${diver.id}">
+                <a class="nav-link" href="/app/details/${user.id}">
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     User details
                 </a>
-                <a class="nav-link" href="/app/changePassword/${diver.id}">
+                <a class="nav-link" href="/app/changePassword/${user.id}">
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     Change password
                 </a>
-                <a class="nav-link" href="/app/divelist/${diver.id}">
+                <a class="nav-link" href="/app/divelist/${user.id}">
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     Show dive list
                 </a>
