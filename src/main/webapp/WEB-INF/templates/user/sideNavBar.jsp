@@ -3,7 +3,7 @@
     <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
         <div class="sb-sidenav-menu">
             <div class="nav">
-                <div class="sb-sidenav-menu-heading">Admin control panel</div>
+                <div class="sb-sidenav-menu-heading">User control panel</div>
                 <a class="nav-link" href="/app">
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     Dashboard
