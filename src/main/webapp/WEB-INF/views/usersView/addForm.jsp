@@ -11,13 +11,19 @@
 
 <form:form modelAttribute="dive" method="post" action="/app/add/dive/${diver.id}">
     <form:hidden path="id"/>
-    <form:hidden path="date"/>
     <input type="hidden" id="diver" name="diver" value="${diver.id}"/>
     <div class="mb-3">
         <div class="mb-3">
             <label class="col-form-label">Partner:</label>
             <form:select path="partner" items="${divers}" itemValue="id" itemLabel="fullName"/>
             <form:errors path="partner"/>
+        </div>
+        <div class="row">
+            <div class="input-field col m12 l6">
+                <label class="col-form-label">Date:</label>
+                <form:input path="date" id="date" type="date" class="datepicker validate"
+                            name="date"/>
+            </div>
         </div>
         <div class="mb-3">
             <label class="col-form-label">Underwater time:</label>

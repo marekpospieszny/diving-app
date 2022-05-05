@@ -1,6 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <form:hidden path="id"/>
-<form:hidden path="date"/>
 <div class="mb-3">
     <div class="mb-3">
         <label class="form-label">Diver:</label>
@@ -12,20 +11,13 @@
         <form:select path="partner" items="${divers}" itemValue="id" itemLabel="fullName"/>
         <form:errors path="partner"/>
     </div>
-<%--    <div class="mb-3">--%>
-<%--        <label class="col-form-label">Date:</label>--%>
-<%--        <form:input path="date"/>--%>
-<%--        <form:errors path="date"/>--%>
-<%--        <input type="date" name="date">--%>
-<%--        <form:input path="date" type="date"/>--%>
-<%--    </div>--%>
-<%--    <div class="mb-3">--%>
-<%--        <label class="col-form-label">Time:</label>--%>
-<%--        <form:input path="time"/>--%>
-<%--        <form:errors path="time"/>--%>
-<%--        <input type="time" name="time">--%>
-<%--        <form:input path="time" type="time"/>--%>
-<%--    </div>--%>
+    <div class="row">
+    <div class="input-field col m12 l6">
+        <label class="col-form-label">Date:</label>
+        <form:input path="date" id="date" type="date" class="datepicker validate"
+               name="date"/>
+    </div>
+    </div>
     <div class="mb-3">
         <label class="col-form-label">Underwater time:</label>
         <form:input path="underwaterTimeInMinutes"/>

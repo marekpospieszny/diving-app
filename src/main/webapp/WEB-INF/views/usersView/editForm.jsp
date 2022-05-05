@@ -11,7 +11,6 @@
 
 <form:form modelAttribute="dive" method="post" action="/app/dive/update/${diver.id}">
     <form:hidden path="id"/>
-    <form:hidden path="date"/>
     <div class="mb-3">
     <c:choose>
         <c:when test="${user.id == diver.id}">
@@ -31,6 +30,13 @@
             </div>
         </c:otherwise>
     </c:choose>
+        <div class="row">
+            <div class="input-field col m12 l6">
+                <label class="col-form-label">Date:</label>
+                <form:input path="date" id="date" type="date" class="datepicker validate"
+                            name="date"/>
+            </div>
+        </div>
         <div class="mb-3">
             <label class="col-form-label">Underwater time:</label>
             <form:input path="underwaterTimeInMinutes"/>
