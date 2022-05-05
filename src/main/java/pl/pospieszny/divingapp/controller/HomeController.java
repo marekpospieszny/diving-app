@@ -18,7 +18,7 @@ public class HomeController {
 
     @RequestMapping("/")
     public String home() {
-        return "web/home";
+        return "redirect:/login";
     }
 
 }
