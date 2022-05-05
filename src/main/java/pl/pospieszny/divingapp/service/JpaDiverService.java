@@ -53,5 +53,10 @@ public class JpaDiverService implements DiverService{
         return diverRepository.findDiversByIdIsNot(id);
     }
 
+    @Override
+    public int countAllDivers() {
+        return diverRepository.countAllDivers();
+    }
+
 
 }

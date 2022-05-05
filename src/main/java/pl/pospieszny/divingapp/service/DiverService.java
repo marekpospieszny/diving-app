@@ -21,4 +21,6 @@ public interface DiverService {
 
     List<Diver> getAllDiversExcludingIndicatedId(Long id);
 
+    int countAllDivers();
+
 }
