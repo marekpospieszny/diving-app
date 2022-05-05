@@ -8,6 +8,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
+import java.sql.Date;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -27,17 +28,9 @@ public class Dive {
     @ManyToOne
     private Diver partner;
 
+    @NotNull
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate date;
-
-    @PrePersist
-    public void prePersist() {
-        date = LocalDate.now();
-    }
-
-    @PreUpdate
-    public void preUpdate() {
-        date = LocalDate.now();
-    }
 
     @Positive
     private int underwaterTimeInMinutes;

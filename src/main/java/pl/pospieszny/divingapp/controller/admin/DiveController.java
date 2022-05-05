@@ -47,6 +47,7 @@ public class DiveController {
         if(result.hasErrors()) {
             model.addAttribute("divers",diverService.getAllDivers());
             model.addAttribute("locations",locationService.getAllLocations());
+            model.addAttribute("error",dive.getDate());
             return "dives/addForm";
         }
         diveService.add(dive);
