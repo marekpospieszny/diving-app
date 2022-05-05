@@ -26,4 +26,8 @@ public interface DiveService{
     double getMaxDepthReachedByDiverId(Long id);
 
     int getAvgDivesRatingByDiverId(Long id);
+
+    int countAllDives();
+
+    int getTotalUnderwaterTime();
 }

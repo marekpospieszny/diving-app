@@ -67,4 +67,14 @@ public class JpaDiveService implements DiveService{
     public int getAvgDivesRatingByDiverId(Long id) {
         return diveRepository.getAvgDivesRatingByDiverId(id);
     }
+
+    @Override
+    public int countAllDives() {
+        return diveRepository.countAllDives();
+    }
+
+    @Override
+    public int getTotalUnderwaterTime() {
+        return diveRepository.getTotalUnderwaterTime();
+    }
 }
