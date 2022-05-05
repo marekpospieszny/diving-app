@@ -42,4 +42,9 @@ public class JpaLocationService implements LocationService{
     public void update(Location location) {
         locationRepository.save(location);
     }
+
+    @Override
+    public int countAllLocations() {
+        return locationRepository.countAllLocations();
+    }
 }
