@@ -36,6 +36,10 @@ public class UserViewController {
         HttpSession session = request.getSession();
         Diver diver = (Diver) session.getAttribute("user");
         model.addAttribute("diver",diver);
+        model.addAttribute("allDives",diveService.countDivesByDiverId(diver.getId()));
+        model.addAttribute("underwaterTime",diveService.getTotalUnderwaterTimeByDiverId(diver.getId()));
+        model.addAttribute("maxDepth",diveService.getMaxDepthReachedByDiverId(diver.getId()));
+        model.addAttribute("avgRating",diveService.getAvgDivesRatingByDiverId(diver.getId()));
         return "web/user";
     }
 
