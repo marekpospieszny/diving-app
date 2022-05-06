@@ -12,10 +12,12 @@ import pl.pospieszny.divingapp.entity.Diver;
 import pl.pospieszny.divingapp.service.DiveService;
 import pl.pospieszny.divingapp.service.DiverService;
 import pl.pospieszny.divingapp.service.LocationService;
+import pl.pospieszny.divingapp.utils.PasswordUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/app")
@@ -49,19 +51,44 @@ public class UserViewController {
         return "usersView/details";
     }
 
+    @GetMapping("/details/update/{id}")
+    public String editUserDetailsForm(@PathVariable Long id, Model model) {
+        model.addAttribute("diver",diverService.get(id));
+        return "usersView/updateUserDetails";
+    }
+
+    @PostMapping("/details/update")
+    public String editUserDetails(@Valid Diver diver, BindingResult result) {
+        if(result.hasErrors()) {
+            return "usersView/updateUserDetails";
+        }
+        diverService.update(diver);
+        return "redirect:/app";
+    }
+
     @GetMapping("/changePassword/{id}")
     public String changePassword(@PathVariable Long id, Model model) {
         model.addAttribute("diver",diverService.get(id).get());
         return "usersView/changePassword";
     }
 
-    @PostMapping("/update")
-    public String edit(@Valid Diver diver, BindingResult result) {
-        if(result.hasErrors()) {
+    @PostMapping("/updatePassword")
+    public String edit(HttpServletRequest request) {
+        Diver diver = (Diver) request.getSession().getAttribute("user");
+        String oldPassword = request.getParameter("oldPassword");
+        String password = request.getParameter("password");
+        String password2 = request.getParameter("password2");
+        if(oldPassword.isBlank() || password.isBlank() || password2.isBlank()) {
+            request.setAttribute("wrong",true);
+            return "usersView/changePassword";
+        } else if(password.equals(password2) && PasswordUtil.checkPassword(oldPassword,diver.getPassword())) {
+            diver.setPassword(password);
+            diverService.update(diver);
+            return "redirect:/app";
+        } else {
+            request.setAttribute("wrong",true);
             return "usersView/changePassword";
         }
-        diverService.update(diver);
-        return "redirect:/app";
     }
 
     @GetMapping("/divelist/{id}")
