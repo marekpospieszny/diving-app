@@ -1,5 +1,4 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,31 +22,24 @@
                 <h1 class="mt-4">Message center</h1>
                 <ol class="breadcrumb mb-4">
                     <li class="breadcrumb-item"><a href="<c:url value="/app/messages"/>" class="btn btn-secondary">Return</a></li>
+                    <li class="breadcrumb-item"><a href="/app/messages/reply/${message.id}" class="btn btn-warning">Reply</a></li>
                 </ol>
                 <div class="card mb-4">
-                    <form:form modelAttribute="message" method="post" action="/app/messages/new">
-                        <form:hidden path="id"/>
-                        <input type="hidden" id="sender" name="sender" value="${user.id}"/>
-                        <div class="mb-3">
-                            <div class="mb-3">
-                                <label class="col-form-label">Send to:</label>
-                                <form:select path="receiver" items="${receivers}" itemValue="id" itemLabel="fullName"/>
-                                <form:errors path="receiver"/>
-                            </div>
-                            <div class="mb-3">
-                                <label class="col-form-label">Subject:</label>
-                                <form:input path="subject"/>
-                                <form:errors path="subject"/>
-                            </div>
-                            <div class="mb-3">
-                                <label class="col-form-label">Message content:</label>
-                                <form:textarea path="messageText"/>
-                                <form:errors path="messageText"/>
-                            </div>
+                    <div class="card-header">
+                        <h5>Message details:</h5>
+                        <ul>
+                            <li>Subject: <b>${message.subject}</b></li>
+                            <li>Date and time: <b>${message.createdOn}</b></li>
+                            <li>Sender: <b>${message.sender.fullName}</b></li>
+                            <li>Receiver: <b>${message.receiver.fullName}</b></li>
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-body">
+                            <h5>Message content:</h5>
+                            ${message.messageText}
                         </div>
-                        <br/>
-                        <input type="submit" value="Send message" class="btn btn-primary">
-                    </form:form>
+                    </div>
                 </div>
             </div>
         </main>

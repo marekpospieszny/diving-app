@@ -25,28 +25,44 @@
                     <li class="breadcrumb-item"><a href="<c:url value="/app/messages"/>" class="btn btn-secondary">Return</a></li>
                 </ol>
                 <div class="card mb-4">
+                    <div class="card-header">
+                        <h5>Received message details:</h5>
+                        <ul>
+                            <li>Subject: <b>${messageToReply.subject}</b></li>
+                            <li>Date and time: <b>${messageToReply.createdOn}</b></li>
+                            <li>Sender: <b>${messageToReply.sender.fullName}</b></li>
+                            <li>Receiver: <b>${messageToReply.receiver.fullName}</b></li>
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-body">
+                            <h5>Received message content:</h5>
+                            ${messageToReply.messageText}
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-4">
                     <form:form modelAttribute="message" method="post" action="/app/messages/new">
                         <form:hidden path="id"/>
                         <input type="hidden" id="sender" name="sender" value="${user.id}"/>
+                        <input type="hidden" id="subject" name="subject" value="${messageToReply.subject}"/>
                         <div class="mb-3">
+                            <c:choose>
+                                <c:when test="${user.id == messageToReply.sender.id}">
+                                    <input type="hidden" id="receiver" name="receiver" value="${messageToReply.receiver.id}"/>
+                                </c:when>
+                                <c:otherwise>
+                                    <input type="hidden" id="receiver" name="receiver" value="${messageToReply.sender.id}"/>
+                                </c:otherwise>
+                            </c:choose>
                             <div class="mb-3">
-                                <label class="col-form-label">Send to:</label>
-                                <form:select path="receiver" items="${receivers}" itemValue="id" itemLabel="fullName"/>
-                                <form:errors path="receiver"/>
-                            </div>
-                            <div class="mb-3">
-                                <label class="col-form-label">Subject:</label>
-                                <form:input path="subject"/>
-                                <form:errors path="subject"/>
-                            </div>
-                            <div class="mb-3">
-                                <label class="col-form-label">Message content:</label>
+                                <h5>Reply message content:</h5>
                                 <form:textarea path="messageText"/>
                                 <form:errors path="messageText"/>
                             </div>
                         </div>
                         <br/>
-                        <input type="submit" value="Send message" class="btn btn-primary">
+                        <input type="submit" value="Send reply message" class="btn btn-primary">
                     </form:form>
                 </div>
             </div>
