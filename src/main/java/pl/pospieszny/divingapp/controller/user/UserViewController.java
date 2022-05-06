@@ -17,7 +17,6 @@ import pl.pospieszny.divingapp.utils.PasswordUtil;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-import java.util.Optional;
 
 @Controller
 @RequestMapping("/app")
@@ -58,10 +57,12 @@ public class UserViewController {
     }
 
     @PostMapping("/details/update")
-    public String editUserDetails(@Valid Diver diver, BindingResult result) {
-        if(result.hasErrors()) {
-            return "usersView/updateUserDetails";
-        }
+    public String editUserDetails(HttpServletRequest request) {
+        Diver diver = (Diver) request.getSession().getAttribute("user");
+        String name = request.getParameter("name");
+        String surname = request.getParameter("surname");
+        diver.setName(name);
+        diver.setSurname(surname);
         diverService.update(diver);
         return "redirect:/app";
     }
