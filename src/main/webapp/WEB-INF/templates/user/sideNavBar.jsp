@@ -24,6 +24,10 @@
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     Show list of diving destinations
                 </a>
+                <a class="nav-link" href="/app/messages/">
+                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    Message center
+                </a>
             </div>
         </div>
         <div class="sb-sidenav-footer">
