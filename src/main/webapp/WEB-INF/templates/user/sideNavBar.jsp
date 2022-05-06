@@ -32,7 +32,7 @@
         </div>
         <div class="sb-sidenav-footer">
             <div class="small">Logged in as:</div>
-            User - ${diver.name}
+            User - ${user.name}
         </div>
     </nav>
 </div>
