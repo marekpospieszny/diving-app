@@ -20,6 +20,7 @@ public class Diver {
     private String surname;
     @Email
     @NotBlank
+    @Column(unique = true)
     private String email;
 
     @NotBlank
