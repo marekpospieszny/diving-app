@@ -33,8 +33,10 @@
                             <thead>
                             <tr>
                                 <th>Name</th>
-                                <th>Surname</th>
-                                <th>Email</th>
+                                <th>Area</th>
+                                <th>Country</th>
+                                <th>Max depth</th>
+                                <th>Rating</th>
                                 <th>Options</th>
                             </tr>
                             </thead>
