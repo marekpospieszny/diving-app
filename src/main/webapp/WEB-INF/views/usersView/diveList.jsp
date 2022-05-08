@@ -39,7 +39,6 @@
                                 <th>Max depth</th>
                                 <th>Location</th>
                                 <th>Rating</th>
-                                <th>Comment</th>
                                 <th>Options</th>
                             </tr>
                             </thead>
@@ -53,7 +52,6 @@
                                     <td><c:out value="${dive.maxDepth}"/></td>
                                     <td><c:out value="${dive.location.name}"/></td>
                                     <td><c:out value="${dive.rating}"/></td>
-                                    <td><c:out value="${dive.comment}"/></td>
                                     <td>
                                         <a href="/app/dive/details/${dive.id}" class="btn btn-success">details</a>
                                         <a href="/app/dive/edit/${dive.id}" class="btn btn-warning">edit</a>
