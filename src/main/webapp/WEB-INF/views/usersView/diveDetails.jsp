@@ -23,6 +23,7 @@
                 <h1 class="mt-4">Dive details</h1>
                 <ol class="breadcrumb mb-4">
                     <li class="breadcrumb-item"><a href="<c:url value="/app/divelist/${user.id}"/>" class="btn btn-secondary">Return</a></li>
+                    <li class="breadcrumb-item"><a href="<c:url value="/app/dive/edit/${dive.id}"/>" class="btn btn-warning">Edit</a></li>
                 </ol>
                 <div class="card mb-4">
                     <div class="card-header">
