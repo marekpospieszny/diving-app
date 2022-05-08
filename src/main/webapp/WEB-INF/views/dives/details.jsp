@@ -1,36 +1,57 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Details</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Dive details</title>
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+    <link href="/resources/css/styles.css" rel="stylesheet" />
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 </head>
-<body>
-<h4>Dive details:</h4>
-<br/>
-<ul class="list-group">
-    <label class="form-label">ID:</label>
-    <li class="list-group-item">${dive.id}</li>
-    <label class="form-label">Diver:</label>
-    <li class="list-group-item">${dive.diver.surname}</li>
-    <label class="form-label">Partner:</label>
-    <li class="list-group-item">${dive.partner.surname}</li>
-    <label class="form-label">Date:</label>
-    <li class="list-group-item">${dive.date}</li>
-    <label class="form-label">Underwater time:</label>
-    <li class="list-group-item">${dive.underwaterTimeInMinutes}</li>
-    <label class="form-label">Max depth:</label>
-    <li class="list-group-item">${dive.maxDepth}</li>
-    <label class="form-label">Location:</label>
-    <li class="list-group-item">${dive.location.name}</li>
-    <label class="form-label">Rating:</label>
-    <li class="list-group-item">${dive.rating}</li>
-    <label class="form-label">Comment:</label>
-    <li class="list-group-item">${dive.comment}</li>
-</ul>
-
-<a href="/admin/dives/list" class="btn btn-secondary">Return</a>
-
+<body class="sb-nav-fixed">
+<jsp:include page="/WEB-INF/templates/admin/topNavBar.jsp"/>
+<div id="layoutSidenav">
+    <jsp:include page="/WEB-INF/templates/admin/sideNavBar.jsp"/>
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid px-4">
+                <h1 class="mt-4">Dive details</h1>
+                <ol class="breadcrumb mb-4">
+                    <li class="breadcrumb-item"><a href="<c:url value="/admin/dives/list"/>" class="btn btn-secondary">Return</a></li>
+                    <li class="breadcrumb-item"><a href="<c:url value="/admin/dives/edit/${dive.id}"/>" class="btn btn-warning">Edit</a></li>
+                </ol>
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5>Dive ${dive.id} details:</h5>
+                        <ul class="list-group">
+                            <li class="list-group-item">Id: <b>${dive.id}</b></li>
+                            <li class="list-group-item">Diver: <b>${dive.diver.fullName}</b></li>
+                            <li class="list-group-item">Partner: <b>${dive.partner.fullName}</b></li>
+                            <li class="list-group-item">Date: <b>${dive.date}</b></li>
+                            <li class="list-group-item">Underwater time: <b>${dive.underwaterTimeInMinutes}</b></li>
+                            <li class="list-group-item">Max depth: <b>${dive.maxDepth}</b></li>
+                            <li class="list-group-item">Location: <b>${dive.location.name}</b></li>
+                            <li class="list-group-item">Rating: <b>${dive.rating}</b></li>
+                            <li class="list-group-item">Comment: <b>${dive.comment}</b></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <jsp:include page="/WEB-INF/templates/admin/footer.jsp"/>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="/resources/js/scripts.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+<script src="/resources/assets/demo/chart-area-demo.js"></script>
+<script src="/resources/assets/demo/chart-bar-demo.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+<script src="/resources/js/datatables-simple-demo.js"></script>
 </body>
 </html>
