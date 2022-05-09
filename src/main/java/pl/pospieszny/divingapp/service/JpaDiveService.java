@@ -1,6 +1,5 @@
 package pl.pospieszny.divingapp.service;
 
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import pl.pospieszny.divingapp.entity.Dive;
 import pl.pospieszny.divingapp.repository.DiveRepository;
@@ -9,7 +8,6 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@Primary
 public class JpaDiveService implements DiveService{
 
     private final DiveRepository diveRepository;

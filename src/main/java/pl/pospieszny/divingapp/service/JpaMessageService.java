@@ -1,6 +1,5 @@
 package pl.pospieszny.divingapp.service;
 
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import pl.pospieszny.divingapp.entity.Message;
 import pl.pospieszny.divingapp.repository.MessageRepository;
@@ -8,7 +7,6 @@ import pl.pospieszny.divingapp.repository.MessageRepository;
 import java.util.List;
 
 @Service
-@Primary
 public class JpaMessageService implements MessageService {
 
     private final MessageRepository messageRepository;
