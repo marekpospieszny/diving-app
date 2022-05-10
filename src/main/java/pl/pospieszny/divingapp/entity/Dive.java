@@ -15,7 +15,10 @@ import java.time.LocalTime;
 
 @Entity
 @Table(name = "dives")
-@Getter@Setter@NoArgsConstructor@AllArgsConstructor
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Dive {
 
     @Id
