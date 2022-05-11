@@ -22,11 +22,11 @@ public class Message {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
+    @NotBlank(message = "{messageSubject.notBlank.message}")
     @Size(max = 50)
     private String subject;
 
-    @NotBlank
+    @NotBlank(message = "{messageText.notBlank.message}")
     @Size(max = 255)
     private String messageText;
 

@@ -20,23 +20,25 @@ public class Location {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
+    @NotBlank(message = "{locationName.notBlank.message}")
     @Size(max = 255)
     private String name;
 
-    @NotBlank
+    @NotBlank(message = "{locationArea.notBlank.message}")
     @Size(max = 255)
     private String area;
 
-    @NotBlank
+    @NotBlank(message = "{locationCountry.notBlank.message}")
     @Size(max = 50)
     private String country;
 
-    @Positive
+    @NotNull(message = "{locationMaxDepth.notNull.message}")
+    @Min(value = 1, message = "{locationMaxDepth.min.message}")
     private Double maxDepth;
 
-    @Min(1)
-    @Max(10)
-    private int rating;
+    @Min(value = 1, message = "{locationRating.min.message}")
+    @Max(value = 10, message = "{locationRating.max.message}")
+    @NotNull(message = "{locationRating.notNull.message}")
+    private Integer rating;
 
 }

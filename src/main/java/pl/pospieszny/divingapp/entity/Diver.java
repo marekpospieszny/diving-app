@@ -22,12 +22,12 @@ public class Diver {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
+    @NotBlank(message = "{diverName.notBlank.message}")
     private String name;
-    @NotBlank
+    @NotBlank(message = "{diverSurname.notBlank.message}")
     private String surname;
-    @Email
-    @NotBlank
+    @Email(message = "{diverEmail.email.message}")
+    @NotBlank(message = "{diverEmail.notBlank.message}")
     @Column(unique = true)
     private String email;
 

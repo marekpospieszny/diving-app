@@ -35,18 +35,21 @@ public class Dive {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate date;
 
-    @Positive
-    private int underwaterTimeInMinutes;
+    @Positive(message = "{diveUnderwaterTime.positive.message}")
+    @NotNull(message = "{diveUnderwaterTime.notNull.message}")
+    private Integer underwaterTimeInMinutes;
 
-    @Positive
-    private double maxDepth;
+    @Positive(message = "{diveMaxDepth.positive.message}")
+    @NotNull(message = "{diveMaxDepth.notNull.message}")
+    private Double maxDepth;
 
     @ManyToOne
     private Location location;
 
-    @Min(1)
-    @Max(10)
-    private int rating;
+    @Min(value = 1, message = "{diveRating.min.message}")
+    @Max(value = 10, message = "{diveRating.max.message}")
+    @NotNull(message = "{diveRating.notNull.message}")
+    private Integer rating;
 
     private String comment;
 
