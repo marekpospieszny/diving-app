@@ -18,12 +18,12 @@
     </div>
     <div class="mb-3">
         <label class="col-form-label">Max depth:</label>
-        <form:input path="maxDepth"/>
+        <form:input path="maxDepth" type="number"/>
         <form:errors path="maxDepth"/>
     </div>
     <div class="mb-3">
         <label class="col-form-label">Rating:</label>
-        <form:input path="rating"/>
+        <form:input path="rating" type="number"/>
         <form:errors path="rating"/>
     </div>
 </div>
