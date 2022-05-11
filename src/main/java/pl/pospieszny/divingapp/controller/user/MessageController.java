@@ -66,4 +66,14 @@ public class MessageController {
         return "messages/reply";
     }
 
+    @PostMapping("/reply/{id}")
+    public String sendReplyMessage(@Valid Message message, BindingResult result, Model model, @PathVariable Long id) {
+        if(result.hasErrors()) {
+            model.addAttribute("messageToReply",messageService.get(id));
+            return "messages/reply";
+        }
+        messageService.add(message);
+        return "redirect:/app/messages";
+    }
+
 }

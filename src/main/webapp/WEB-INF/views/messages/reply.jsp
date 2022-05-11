@@ -42,7 +42,7 @@
                     </div>
                 </div>
                 <div class="card mb-4">
-                    <form:form modelAttribute="message" method="post" action="/app/messages/new">
+                    <form:form modelAttribute="message" method="post" action="/app/messages/reply/${messageToReply.id}">
                         <form:hidden path="id"/>
                         <input type="hidden" id="sender" name="sender" value="${user.id}"/>
                         <input type="hidden" id="subject" name="subject" value="${messageToReply.subject}"/>
