@@ -16,13 +16,13 @@ public interface DiveRepository extends JpaRepository<Dive, Long> {
     int countDivesByDiverId(Long id);
 
     @Query(value = "select sum(underwater_time_in_minutes) from dives where diver_id = ?1 or partner_id = ?1", nativeQuery = true)
-    int getTotalUnderwaterTimeByDiverId(Long id);
+    Integer getTotalUnderwaterTimeByDiverId(Long id);
 
     @Query(value = "select max(max_depth) from dives where diver_id = ?1 or partner_id = ?1", nativeQuery = true)
-    double getMaxDepthReachedByDiverId(Long id);
+    Double getMaxDepthReachedByDiverId(Long id);
 
     @Query(value = "select avg(rating) from dives where diver_id = ?1 or partner_id = ?1", nativeQuery = true)
-    int getAvgDivesRatingByDiverId(Long id);
+    Integer getAvgDivesRatingByDiverId(Long id);
 
     @Query(value = "select count(*) from dives", nativeQuery = true)
     int countAllDives();

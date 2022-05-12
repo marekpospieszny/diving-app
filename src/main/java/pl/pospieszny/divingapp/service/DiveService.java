@@ -21,11 +21,11 @@ public interface DiveService{
 
     int countDivesByDiverId(Long id);
 
-    int getTotalUnderwaterTimeByDiverId(Long id);
+    Integer getTotalUnderwaterTimeByDiverId(Long id);
 
-    double getMaxDepthReachedByDiverId(Long id);
+    Double getMaxDepthReachedByDiverId(Long id);
 
-    int getAvgDivesRatingByDiverId(Long id);
+    Integer getAvgDivesRatingByDiverId(Long id);
 
     int countAllDives();
 

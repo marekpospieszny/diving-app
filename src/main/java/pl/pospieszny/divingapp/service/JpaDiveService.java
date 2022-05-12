@@ -52,17 +52,17 @@ public class JpaDiveService implements DiveService{
     }
 
     @Override
-    public int getTotalUnderwaterTimeByDiverId(Long id) {
+    public Integer getTotalUnderwaterTimeByDiverId(Long id) {
         return diveRepository.getTotalUnderwaterTimeByDiverId(id);
     }
 
     @Override
-    public double getMaxDepthReachedByDiverId(Long id) {
+    public Double getMaxDepthReachedByDiverId(Long id) {
         return diveRepository.getMaxDepthReachedByDiverId(id);
     }
 
     @Override
-    public int getAvgDivesRatingByDiverId(Long id) {
+    public Integer getAvgDivesRatingByDiverId(Long id) {
         return diveRepository.getAvgDivesRatingByDiverId(id);
     }
 
