@@ -43,6 +43,11 @@
                             <br/>
                             <input type="submit" class="btn btn-warning" value="Edit">
                         </form>
+                        <c:if test="${blank}">
+                            <div class="alert">
+                                <p> Incorrect empty value provided. Please provide correct name and surname value. </p>
+                            </div>
+                        </c:if>
                     </div>
                 </div>
             </div>

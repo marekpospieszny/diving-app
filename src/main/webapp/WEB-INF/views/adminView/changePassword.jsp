@@ -27,7 +27,7 @@
                 </ol>
                 <div class="card mb-4">
                     <div class="card-header">
-                        <form action="/app/updatePassword" method="post">
+                        <form action="/admin/updatePassword" method="post">
                             <div class="mb-3">
                                 <div class="mb-3">
                                     <label class="col-form-label">Old password:</label>

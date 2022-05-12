@@ -69,10 +69,15 @@ public class AdminPanelController {
     }
 
     @PostMapping("/details/update")
-    public String editUserDetails(HttpServletRequest request) {
+    public String editUserDetails(HttpServletRequest request, Model model) {
         Diver diver = (Diver) request.getSession().getAttribute("user");
         String name = request.getParameter("name");
         String surname = request.getParameter("surname");
+        if(name.isBlank() || surname.isBlank()) {
+            model.addAttribute("diver",diverService.get(diver.getId()));
+            request.setAttribute("blank",true);
+            return "adminView/updateAdminDetails";
+        }
         diver.setName(name);
         diver.setSurname(surname);
         diverService.update(diver);
