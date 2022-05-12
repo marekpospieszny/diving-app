@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import pl.pospieszny.divingapp.entity.Diver;
 import pl.pospieszny.divingapp.service.DiverService;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -37,10 +38,13 @@ public class DiverController {
     }
 
     @PostMapping("/add")
-    public String addDiver(@Valid Diver diver, BindingResult result, Model model) {
-        if (result.hasErrors()) {
+    public String addDiver(@Valid Diver diver, BindingResult result, HttpServletRequest request) {
+        String password = request.getParameter("password");
+        if (result.hasErrors() || password.isBlank()) {
+            request.setAttribute("blank",true);
             return "divers/addForm";
         }
+        diver.setPassword(password);
         diverService.add(diver);
         return "redirect:/admin/divers/list";
     }
@@ -52,10 +56,13 @@ public class DiverController {
     }
 
     @PostMapping("/update")
-    public String editDiver(@Valid Diver diver, BindingResult result, Model model) {
-        if(result.hasErrors()) {
+    public String editDiver(@Valid Diver diver, BindingResult result, HttpServletRequest request) {
+        String password = request.getParameter("password");
+        if(result.hasErrors() || password.isBlank()) {
+            request.setAttribute("blank",true);
             return "divers/editForm";
         }
+        diver.setPassword(password);
         diverService.update(diver);
         return "redirect:/admin/divers/list";
     }
