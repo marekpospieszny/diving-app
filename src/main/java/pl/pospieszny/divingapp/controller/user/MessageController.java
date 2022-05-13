@@ -27,7 +27,7 @@ public class MessageController {
         this.diverService = diverService;
     }
 
-    @GetMapping("")
+    @GetMapping("/")
     public String messageCenter(Model model, HttpServletRequest request) {
         Diver user = (Diver) request.getSession().getAttribute("user");
         model.addAttribute("messages",messageService.getByUserId(user.getId()));
@@ -50,7 +50,7 @@ public class MessageController {
             return "messages/new";
         }
         messageService.add(message);
-        return "redirect:/app/messages";
+        return "redirect:/app/messages/";
     }
 
     @GetMapping("/details/{id}")
@@ -73,7 +73,7 @@ public class MessageController {
             return "messages/reply";
         }
         messageService.add(message);
-        return "redirect:/app/messages";
+        return "redirect:/app/messages/";
     }
 
 }
