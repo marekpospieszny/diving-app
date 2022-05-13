@@ -1,10 +1,10 @@
 # diving-app
-Diving app is a application that keeps diving community together. It helps users to plan next dives, find available locations and keep history of all dives in one place.
+Diving app is an application that keeps diving community together. It helps users to plan next dives, find available locations and keep history of all dives in one place.
 
 **General application features:**
-- different view for users and admin,
-- users can manage data only related to their user,
-- admins can manage all data in application.
+- different views for users and admin,
+- users can manage only their own data,
+- admins can manage all data in the application.
 
 **Functionalities for user:**
 - register/login,
