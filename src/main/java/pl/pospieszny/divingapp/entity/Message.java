@@ -38,10 +38,10 @@ public class Message {
         createdOn = LocalDateTime.now();
     }
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.REMOVE)
     private Diver sender;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.REMOVE)
     private Diver receiver;
 
 }

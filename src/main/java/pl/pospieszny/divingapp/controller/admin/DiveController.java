@@ -30,24 +30,24 @@ public class DiveController {
 
     @GetMapping("/list")
     public String showAllDives(Model model) {
-        model.addAttribute("dives",diveService.getAllDives());
+        model.addAttribute("dives", diveService.getAllDives());
         return "dives/list";
     }
 
     @GetMapping("/add")
     public String addDiveForm(Model model) {
-        model.addAttribute("divers",diverService.getAllDivers());
-        model.addAttribute("locations",locationService.getAllLocations());
-        model.addAttribute("dive",new Dive());
+        model.addAttribute("divers", diverService.getAllDivers());
+        model.addAttribute("locations", locationService.getAllLocations());
+        model.addAttribute("dive", new Dive());
         return "dives/addForm";
     }
 
     @PostMapping("/add")
     public String addDive(@Valid Dive dive, BindingResult result, Model model) {
-        if(result.hasErrors()) {
-            model.addAttribute("divers",diverService.getAllDivers());
-            model.addAttribute("locations",locationService.getAllLocations());
-            model.addAttribute("error",dive.getDate());
+        if (result.hasErrors()) {
+            model.addAttribute("divers", diverService.getAllDivers());
+            model.addAttribute("locations", locationService.getAllLocations());
+            model.addAttribute("error", dive.getDate());
             return "dives/addForm";
         }
         diveService.add(dive);
@@ -56,17 +56,17 @@ public class DiveController {
 
     @GetMapping("/edit/{id}")
     public String openEditForm(@PathVariable Long id, Model model) {
-        model.addAttribute("divers",diverService.getAllDivers());
-        model.addAttribute("locations",locationService.getAllLocations());
-        model.addAttribute("dive",diveService.get(id));
+        model.addAttribute("divers", diverService.getAllDivers());
+        model.addAttribute("locations", locationService.getAllLocations());
+        model.addAttribute("dive", diveService.get(id));
         return "dives/editForm";
     }
 
     @PostMapping("/update")
     public String editDive(@Valid Dive dive, BindingResult result, Model model) {
-        if(result.hasErrors()) {
-            model.addAttribute("divers",diverService.getAllDivers());
-            model.addAttribute("locations",locationService.getAllLocations());
+        if (result.hasErrors()) {
+            model.addAttribute("divers", diverService.getAllDivers());
+            model.addAttribute("locations", locationService.getAllLocations());
             return "dives/editForm";
         }
         diveService.update(dive);
@@ -75,9 +75,9 @@ public class DiveController {
 
     @GetMapping("/details/{id}")
     public String getDiveDetails(@PathVariable Long id, Model model) {
-        model.addAttribute("divers",diverService.getAllDivers());
-        model.addAttribute("locations",locationService.getAllLocations());
-        model.addAttribute("dive",diveService.get(id).get());
+        model.addAttribute("divers", diverService.getAllDivers());
+        model.addAttribute("locations", locationService.getAllLocations());
+        model.addAttribute("dive", diveService.get(id).get());
         return "dives/details";
     }
 

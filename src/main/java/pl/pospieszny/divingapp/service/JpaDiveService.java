@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class JpaDiveService implements DiveService{
+public class JpaDiveService implements DiveService {
 
     private final DiveRepository diveRepository;
 

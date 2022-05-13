@@ -5,7 +5,7 @@ import pl.pospieszny.divingapp.entity.Dive;
 import java.util.List;
 import java.util.Optional;
 
-public interface DiveService{
+public interface DiveService {
 
     List<Dive> getAllDives();
 
