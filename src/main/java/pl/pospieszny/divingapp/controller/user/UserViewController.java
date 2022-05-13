@@ -32,7 +32,7 @@ public class UserViewController {
         this.locationService = locationService;
     }
 
-    @GetMapping("")
+    @GetMapping("/")
     public String userHomepage(HttpServletRequest request, Model model) {
         HttpSession session = request.getSession();
         Diver diver = (Diver) session.getAttribute("user");
@@ -69,7 +69,7 @@ public class UserViewController {
         diver.setName(name);
         diver.setSurname(surname);
         diverService.update(diver);
-        return "redirect:/app";
+        return "redirect:/app/";
     }
 
     @GetMapping("/changePassword/{id}")
@@ -90,7 +90,7 @@ public class UserViewController {
         } else if(password.equals(password2) && PasswordUtil.checkPassword(oldPassword,diver.getPassword())) {
             diver.setPassword(password);
             diverService.update(diver);
-            return "redirect:/app";
+            return "redirect:/app/";
         } else {
             request.setAttribute("wrong",true);
             return "usersView/changePassword";
@@ -106,14 +106,14 @@ public class UserViewController {
 
     @GetMapping("/locations")
     public String locations(Model model) {
-        model.addAttribute("locations",locationService.getAllLocations());
+        model.addAttribute("locations",locationService.getAllActiveLocations());
         return "usersView/locationsList";
     }
 
     @GetMapping("/add/dive/{id}")
     public String addForm(@PathVariable Long id, Model model) {
         model.addAttribute("divers",diverService.getAllDiversExcludingIndicatedId(id));
-        model.addAttribute("locations",locationService.getAllLocations());
+        model.addAttribute("locations",locationService.getAllActiveLocations());
         model.addAttribute("diver",diverService.get(id).get());
         model.addAttribute("dive",new Dive());
         return "usersView/addForm";
@@ -122,8 +122,8 @@ public class UserViewController {
     @PostMapping("/add/dive/{id}")
     public String addDive(@Valid Dive dive, BindingResult result, Model model, @PathVariable Long id) {
         if(result.hasErrors()) {
-            model.addAttribute("divers",diverService.getAllDivers());
-            model.addAttribute("locations",locationService.getAllLocations());
+            model.addAttribute("divers",diverService.getAllDiversExcludingIndicatedId(id));
+            model.addAttribute("locations",locationService.getAllActiveLocations());
             model.addAttribute("diver",diverService.get(id).get());
             return "usersView/addForm";
         }

@@ -38,7 +38,7 @@ public class AuthorizationController {
             if(diver.isAdmin()) {
                 return "redirect:/admin";
             } else {
-                return "redirect:/app";
+                return "redirect:/app/";
             }
         } else {
             request.setAttribute("wrong",true);
@@ -62,7 +62,7 @@ public class AuthorizationController {
         if(PasswordUtil.checkPassword(password2, diver.getPassword())) {
             diverService.add(diver);
             session.setAttribute("user",diver);
-            return "redirect:/app";
+            return "redirect:/app/";
         } else {
             request.setAttribute("wrong",true);
             return "web/register";
