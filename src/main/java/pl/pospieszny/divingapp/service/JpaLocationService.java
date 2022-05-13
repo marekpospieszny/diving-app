@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class JpaLocationService implements LocationService{
+public class JpaLocationService implements LocationService {
 
     private final LocationRepository locationRepository;
 
@@ -37,6 +37,11 @@ public class JpaLocationService implements LocationService{
     }
 
     @Override
+    public void deactivate(Long id) {
+        locationRepository.deactivate(id);
+    }
+
+    @Override
     public void update(Location location) {
         locationRepository.save(location);
     }
@@ -44,5 +49,10 @@ public class JpaLocationService implements LocationService{
     @Override
     public int countAllLocations() {
         return locationRepository.countAllLocations();
+    }
+
+    @Override
+    public List<Location> getAllActiveLocations() {
+        return locationRepository.findLocationsByActiveTrue();
     }
 }

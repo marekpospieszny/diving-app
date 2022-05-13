@@ -15,7 +15,11 @@ public interface LocationService {
 
     void delete(Long id);
 
+    void deactivate(Long id);
+
     void update(Location location);
 
     int countAllLocations();
+
+    List<Location> getAllActiveLocations();
 }

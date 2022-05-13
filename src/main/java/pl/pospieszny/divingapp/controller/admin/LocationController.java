@@ -24,7 +24,7 @@ public class LocationController {
 
     @GetMapping("/list")
     public String getAllLocations(Model model) {
-        model.addAttribute("locations",locationService.getAllLocations());
+        model.addAttribute("locations",locationService.getAllActiveLocations());
         return "locations/list";
     }
 
@@ -60,7 +60,8 @@ public class LocationController {
 
     @GetMapping("/delete/{id}")
     public String deleteLocation(@PathVariable Long id) {
-        locationService.delete(id);
+//        locationService.delete(id);
+        locationService.deactivate(id);
         return "redirect:/admin/locations/list";
     }
 

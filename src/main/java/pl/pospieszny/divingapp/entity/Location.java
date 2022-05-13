@@ -41,4 +41,7 @@ public class Location {
     @NotNull(message = "{locationRating.notNull.message}")
     private Integer rating;
 
+    @Column(columnDefinition = "bit default true")
+    private boolean active;
+
 }
