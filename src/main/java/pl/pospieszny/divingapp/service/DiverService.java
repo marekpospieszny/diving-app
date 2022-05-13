@@ -15,6 +15,8 @@ public interface DiverService {
 
     void delete(Long id);
 
+    void deactivate(Long id);
+
     void update(Diver diver);
 
     Diver getByEmail(String email);
@@ -22,5 +24,7 @@ public interface DiverService {
     List<Diver> getAllDiversExcludingIndicatedId(Long id);
 
     int countAllDivers();
+
+    List<Diver> getAllActiveDivers();
 
 }

@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class JpaDiverService implements DiverService{
+public class JpaDiverService implements DiverService {
 
     private final DiverRepository diverRepository;
 
@@ -36,6 +36,10 @@ public class JpaDiverService implements DiverService{
         diverRepository.deleteById(id);
     }
 
+    public void deactivate(Long id) {
+        diverRepository.deactivate(id);
+    }
+
     @Override
     public void update(Diver diver) {
         diverRepository.save(diver);
@@ -48,7 +52,7 @@ public class JpaDiverService implements DiverService{
 
     @Override
     public List<Diver> getAllDiversExcludingIndicatedId(Long id) {
-        return diverRepository.findDiversByIdIsNot(id);
+        return diverRepository.findDiversByIdIsNotAndActiveTrue(id);
     }
 
     @Override
@@ -56,5 +60,9 @@ public class JpaDiverService implements DiverService{
         return diverRepository.countAllDivers();
     }
 
+    @Override
+    public List<Diver> getAllActiveDivers() {
+        return diverRepository.findDiversByActiveTrue();
+    }
 
 }

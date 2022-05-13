@@ -26,14 +26,14 @@ public class DiverController {
 
     @GetMapping("/list")
     public String showAllDivers(Model model) {
-        List<Diver> divers = diverService.getAllDivers();
-        model.addAttribute("divers",divers);
+        List<Diver> divers = diverService.getAllActiveDivers();
+        model.addAttribute("divers", divers);
         return "divers/list";
     }
 
     @GetMapping("/add")
     public String openAddForm(Model model) {
-        model.addAttribute("diver",new Diver());
+        model.addAttribute("diver", new Diver());
         return "divers/addForm";
     }
 
@@ -41,7 +41,7 @@ public class DiverController {
     public String addDiver(@Valid Diver diver, BindingResult result, HttpServletRequest request) {
         String password = request.getParameter("password");
         if (result.hasErrors() || password.isBlank()) {
-            request.setAttribute("blank",true);
+            request.setAttribute("blank", true);
             return "divers/addForm";
         }
         diver.setPassword(password);
@@ -51,15 +51,15 @@ public class DiverController {
 
     @GetMapping("/edit/{id}")
     public String openEditForm(@PathVariable Long id, Model model) {
-        model.addAttribute("diver",diverService.get(id));
+        model.addAttribute("diver", diverService.get(id));
         return "divers/editForm";
     }
 
     @PostMapping("/update")
     public String editDiver(@Valid Diver diver, BindingResult result, HttpServletRequest request) {
         String password = request.getParameter("password");
-        if(result.hasErrors() || password.isBlank()) {
-            request.setAttribute("blank",true);
+        if (result.hasErrors() || password.isBlank()) {
+            request.setAttribute("blank", true);
             return "divers/editForm";
         }
         diver.setPassword(password);
@@ -69,13 +69,14 @@ public class DiverController {
 
     @GetMapping("/delete/{id}")
     public String deleteDiver(@PathVariable Long id) {
-        diverService.delete(id);
+//        diverService.delete(id);
+        diverService.deactivate(id);
         return "redirect:/admin/divers/list";
     }
 
     @GetMapping("/details/{id}")
     public String getDiverDetails(@PathVariable Long id, Model model) {
-        model.addAttribute("diver",diverService.get(id).get());
+        model.addAttribute("diver", diverService.get(id).get());
         return "divers/details";
     }
 

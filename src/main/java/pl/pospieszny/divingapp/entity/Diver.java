@@ -36,8 +36,11 @@ public class Diver {
 
     private boolean admin;
 
+    @Column(columnDefinition = "bit default true")
+    private boolean active;
+
     public String getFullName() {
-        return String.join(" ",this.name, this.surname);
+        return String.join(" ", this.name, this.surname);
     }
 
     public String getPassword() {
