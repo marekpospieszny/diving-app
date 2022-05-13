@@ -9,7 +9,7 @@ Diving app is an application that keeps diving community together. It helps user
 **Functionalities for user:**
 - register/login,
 - view summary on homepage,
-- add, edit, remove and view details of dives of logged user,
+- manage dives (view, edit, add and remove data),
 - view available diving locations,
 - send messages to other divers to arrange dive together,
 - allows to change basic details of user,
@@ -41,7 +41,7 @@ To login as admin:
 - HTML
 - CSS
 - MySQL
-- JaveScript
+- JavaScript
 - SB Admin (Bootstrap Admin Theme)
 - BCrypt
 - Maven
