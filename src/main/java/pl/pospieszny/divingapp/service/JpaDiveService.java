@@ -67,12 +67,12 @@ public class JpaDiveService implements DiveService{
     }
 
     @Override
-    public int countAllDives() {
+    public Integer countAllDives() {
         return diveRepository.countAllDives();
     }
 
     @Override
-    public int getTotalUnderwaterTime() {
+    public Integer getTotalUnderwaterTime() {
         return diveRepository.getTotalUnderwaterTime();
     }
 }

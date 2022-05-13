@@ -27,7 +27,7 @@ public interface DiveService{
 
     Integer getAvgDivesRatingByDiverId(Long id);
 
-    int countAllDives();
+    Integer countAllDives();
 
-    int getTotalUnderwaterTime();
+    Integer getTotalUnderwaterTime();
 }

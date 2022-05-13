@@ -25,10 +25,10 @@ public interface DiveRepository extends JpaRepository<Dive, Long> {
     Integer getAvgDivesRatingByDiverId(Long id);
 
     @Query(value = "select count(*) from dives", nativeQuery = true)
-    int countAllDives();
+    Integer countAllDives();
 
     @Query(value = "select sum(underwater_time_in_minutes) from dives", nativeQuery = true)
-    int getTotalUnderwaterTime();
+    Integer getTotalUnderwaterTime();
 
 
 }
