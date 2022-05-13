@@ -30,23 +30,23 @@ public class MessageController {
     @GetMapping("/")
     public String messageCenter(Model model, HttpServletRequest request) {
         Diver user = (Diver) request.getSession().getAttribute("user");
-        model.addAttribute("messages",messageService.getByUserId(user.getId()));
+        model.addAttribute("messages", messageService.getByUserId(user.getId()));
         return "messages/center";
     }
 
     @GetMapping("/new")
     public String newMessage(Model model, HttpServletRequest request) {
         Diver user = (Diver) request.getSession().getAttribute("user");
-        model.addAttribute("message",new Message());
-        model.addAttribute("receivers",diverService.getAllDiversExcludingIndicatedId(user.getId()));
+        model.addAttribute("message", new Message());
+        model.addAttribute("receivers", diverService.getAllDiversExcludingIndicatedId(user.getId()));
         return "messages/new";
     }
 
     @PostMapping("/new")
     public String sendMessage(@Valid Message message, BindingResult result, Model model, HttpServletRequest request) {
-        if(result.hasErrors()) {
+        if (result.hasErrors()) {
             Diver user = (Diver) request.getSession().getAttribute("user");
-            model.addAttribute("receivers",diverService.getAllDiversExcludingIndicatedId(user.getId()));
+            model.addAttribute("receivers", diverService.getAllDiversExcludingIndicatedId(user.getId()));
             return "messages/new";
         }
         messageService.add(message);
@@ -55,21 +55,21 @@ public class MessageController {
 
     @GetMapping("/details/{id}")
     public String messageDetails(@PathVariable Long id, Model model) {
-        model.addAttribute("message",messageService.get(id));
+        model.addAttribute("message", messageService.get(id));
         return "messages/details";
     }
 
     @GetMapping("/reply/{id}")
     public String replyMessage(@PathVariable Long id, Model model) {
-        model.addAttribute("messageToReply",messageService.get(id));
+        model.addAttribute("messageToReply", messageService.get(id));
         model.addAttribute("message", new Message());
         return "messages/reply";
     }
 
     @PostMapping("/reply/{id}")
     public String sendReplyMessage(@Valid Message message, BindingResult result, Model model, @PathVariable Long id) {
-        if(result.hasErrors()) {
-            model.addAttribute("messageToReply",messageService.get(id));
+        if (result.hasErrors()) {
+            model.addAttribute("messageToReply", messageService.get(id));
             return "messages/reply";
         }
         messageService.add(message);

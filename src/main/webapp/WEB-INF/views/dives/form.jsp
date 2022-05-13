@@ -12,11 +12,11 @@
         <form:errors path="partner"/>
     </div>
     <div class="row">
-    <div class="input-field col m12 l6">
-        <label class="col-form-label">Date:</label>
-        <form:input path="date" id="date" type="date" class="datepicker validate"
-               name="date"/>
-    </div>
+        <div class="input-field col m12 l6">
+            <label class="col-form-label">Date:</label>
+            <form:input path="date" id="date" type="date" class="datepicker validate"
+                        name="date"/>
+        </div>
     </div>
     <div class="mb-3">
         <label class="col-form-label">Underwater time:</label>

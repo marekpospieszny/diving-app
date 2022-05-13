@@ -19,8 +19,6 @@
     </div>
     <div class="mb-3">
         <label class="col-form-label">Password:</label>
-<%--        <form:password path="password"/>--%>
-<%--        <form:errors path="password"/>--%>
         <input type="password" name="password">
     </div>
     <c:if test="${blank}">

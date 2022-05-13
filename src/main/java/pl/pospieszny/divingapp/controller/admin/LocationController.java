@@ -24,19 +24,19 @@ public class LocationController {
 
     @GetMapping("/list")
     public String getAllLocations(Model model) {
-        model.addAttribute("locations",locationService.getAllActiveLocations());
+        model.addAttribute("locations", locationService.getAllActiveLocations());
         return "locations/list";
     }
 
     @GetMapping("/add")
     public String openAddForm(Model model) {
-        model.addAttribute("location",new Location());
+        model.addAttribute("location", new Location());
         return "locations/addForm";
     }
 
     @PostMapping("/add")
     public String addLocation(@Valid Location location, BindingResult result, Model model) {
-        if(result.hasErrors()) {
+        if (result.hasErrors()) {
             return "locations/addForm";
         }
         locationService.add(location);
@@ -45,13 +45,13 @@ public class LocationController {
 
     @GetMapping("/edit/{id}")
     public String openEditForm(@PathVariable Long id, Model model) {
-        model.addAttribute("location",locationService.get(id));
+        model.addAttribute("location", locationService.get(id));
         return "locations/editForm";
     }
 
     @PostMapping("/update")
     public String editLocation(@Valid Location location, BindingResult result, Model model) {
-        if(result.hasErrors()) {
+        if (result.hasErrors()) {
             return "locations/editForm";
         }
         locationService.update(location);
@@ -67,7 +67,7 @@ public class LocationController {
 
     @GetMapping("/details/{id}")
     public String locationDetails(@PathVariable Long id, Model model) {
-        model.addAttribute("location",locationService.get(id).get());
+        model.addAttribute("location", locationService.get(id).get());
         return "locations/details";
     }
 
