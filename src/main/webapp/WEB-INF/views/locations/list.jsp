@@ -51,7 +51,7 @@
                                     <td>
                                         <a href="/admin/locations/details/${location.id}" class="btn btn-success">details</a>
                                         <a href="/admin/locations/edit/${location.id}" class="btn btn-warning">edit</a>
-                                        <a href="/admin/locations/delete/${location.id}" class="btn btn-danger">delete</a>
+                                        <a href="/admin/locations/delete/${location.id}" class="btn btn-danger" onclick="return confirm('Are you sure to delete?')">delete</a>
                                     </td>
                                 </tr>
                             </c:forEach>

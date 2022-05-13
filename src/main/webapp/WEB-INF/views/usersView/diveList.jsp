@@ -55,7 +55,7 @@
                                     <td>
                                         <a href="/app/dive/details/${dive.id}" class="btn btn-success">details</a>
                                         <a href="/app/dive/edit/${dive.id}" class="btn btn-warning">edit</a>
-                                        <a href="/app/dive/delete/${dive.id}" class="btn btn-danger">delete</a>
+                                        <a href="/app/dive/delete/${dive.id}" class="btn btn-danger" onclick="return confirm('Are you sure to delete?')">delete</a>
                                     </td>
                                 </tr>
                             </c:forEach>

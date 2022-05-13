@@ -57,7 +57,7 @@
                                     <td>
                                         <a href="/admin/dives/details/${dive.id}" class="btn btn-success">details</a>
                                         <a href="/admin/dives/edit/${dive.id}" class="btn btn-warning">edit</a>
-                                        <a href="/admin/dives/delete/${dive.id}" class="btn btn-danger">delete</a>
+                                        <a href="/admin/dives/delete/${dive.id}" class="btn btn-danger" onclick="return confirm('Are you sure to delete?')">delete</a>
                                     </td>
                                 </tr>
                             </c:forEach>
