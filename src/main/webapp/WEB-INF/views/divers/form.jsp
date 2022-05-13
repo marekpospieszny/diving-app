@@ -1,6 +1,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <form:hidden path="id"/>
+<form:hidden path="active"/>
 <div class="mb-3">
     <div class="mb-3">
         <label class="form-label">Name:</label>
