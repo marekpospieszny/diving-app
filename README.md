@@ -35,9 +35,8 @@ To login as admin:
 
 # Technologies used:
 - Java
-- Spring
+- Spring (Spring Boot)
 - Hibernate
-- Spring Boot
 - HTML
 - CSS
 - MySQL
