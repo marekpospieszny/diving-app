@@ -34,7 +34,7 @@ To login as admin:
 - password: admin
 
 # Technologies used:
-- Java
+- Java 11
 - Spring (Spring Boot)
 - Hibernate
 - HTML
