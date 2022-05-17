@@ -42,6 +42,6 @@ To login as admin:
 - MySQL
 - JavaScript
 - SB Admin (Bootstrap Admin Theme)
-- Security: BCrypt
+- Security: BCrypt, Session
 - Maven
 - JSP
