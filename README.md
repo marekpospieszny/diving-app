@@ -45,3 +45,5 @@ To login as admin:
 - Security: BCrypt, Session
 - Maven
 - JSP
+
+Version 1.0
