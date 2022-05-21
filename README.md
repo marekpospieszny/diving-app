@@ -47,3 +47,6 @@ To login as admin:
 - JSP
 
 Version 1.0
+
+Potential improvements:
+- 
