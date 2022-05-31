@@ -37,6 +37,7 @@ To login as admin:
 - Java 11
 - Spring (Spring Boot)
 - Hibernate
+- Spring Data JPA
 - HTML
 - CSS
 - MySQL
